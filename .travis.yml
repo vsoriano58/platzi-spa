@@ -1,0 +1,21 @@
+language: node_js                         # Lenguaje en el que vamos a traajar
+cache:                                    # Utilizaremos cache
+  directories:                            # Directorio cacheado
+    - ~/.npm
+node_js:                                  # Version de node
+  -"12"
+git:                                      # Que utilice git
+  depth:3                                 # y profundice gasta el tercer nivel
+script:
+  - yarn build                            # Comando que ejecutará la compilación del proyecto
+deploy:
+  provider: pages                         # Utilizamos github pages para el despliegue
+  edge:true
+  skip-cleanup:true
+  keep-history:true
+  github-token: $GITHUB_TOKEN
+  local-dir: dist/
+  target-branch: gh-pages
+  commit_message:"Deploy Release"
+  on:
+    branch: master
