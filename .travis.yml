@@ -1,15 +1,15 @@
-language: node_js                         # Lenguaje en el que vamos a traajar
-cache:                                    # Utilizaremos cache
-  directories:                            # Directorio cacheado
+language: node_js
+cache:
+  directories:
     - ~/.npm
-node_js:                                  # Version de node
-  -"12"
-git:                                      # Que utilice git
-  depth:3                                 # y profundice gasta el tercer nivel
+node_js:
+  - '12'
+git:
+  depth:3
 script:
-  - yarn build                            # Comando que ejecutará la compilación del proyecto
-deploy:
-  provider: pages                         # Utilizamos github pages para el despliegue
+  - yarn build
+deploy: 
+  provider: pages
   edge:true
   skip-cleanup:true
   keep-history:true
